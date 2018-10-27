@@ -33,6 +33,12 @@
         while (startSection <= endSection) {
             currentNumber = Math.floor((startSection + endSection) / 2);
             if (findValue === array[currentNumber]) {
+                for (let i = startSection; i < endSection; i++) {
+                    if (findValue === array[i]) {
+                        console.log(`finded index: ${i}`);
+                        return i;
+                    }
+                }
                 console.log(`finded index: ${currentNumber}`);
                 return currentNumber;
             } else if (findValue < array[currentNumber]) {
