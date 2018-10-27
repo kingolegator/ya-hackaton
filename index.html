@@ -8,7 +8,6 @@
 <body>
 </body>
 <script>
-
     const inputArr = [4, 7, 3, 2, 0, 12];
 
     function bubleSort(arr) {
@@ -52,6 +51,38 @@
     }
 
     binaryFind(12, sortResult);
+
+    function checkBalance(inputString) {
+        const inputLength = inputString.length;
+        const openSymbol = ["{", "[", "("];
+        const checkSymbol = {
+            "}": "{",
+            ")": "(",
+            "]": "["
+        };
+
+        if (inputLength < 1) {
+            console.log("Empty string");
+            return false;
+        }
+
+        let i, charValue, last, stack = [];
+
+        for (i = 0; i < inputLength; i++) {
+
+            charValue = inputString[i];
+
+            if (openSymbol.indexOf(charValue) !== -1) {
+                stack.push(charValue);
+            } else if (checkSymbol[charValue]) {
+                if (stack[stack.length - 1] === checkSymbol[charValue])
+                    stack.pop();
+                else return false;
+            }
+        }
+        return stack.length === 0;
+    }
+    console.log("check balance", checkBalance("{[}]"));
 
 </script>
 
