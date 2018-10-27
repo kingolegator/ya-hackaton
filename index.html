@@ -140,11 +140,11 @@
     console.log(horisontalDepth(treeExamp));
 
     function getPrime(number) {
-        const numberSqrt = Math.sqrt(number);
         const primeNumbers = [];
 
         for (let i = 3; i < number; i += 2) {
             let breakeFlag = false;
+            const numberSqrt = Math.sqrt(i);
             for (let j = 0; j < primeNumbers.length && primeNumbers[j] <= numberSqrt; j++) {
                 if (i % primeNumbers[j] === 0) {
                     breakeFlag = true;
