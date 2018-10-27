@@ -125,19 +125,44 @@
     console.log(depthTree(treeExamp));
 
     function horisontalDepth(inputTree) {
-            const queue = [inputTree];
-            const result = [];
-            for (let i = 0; i < queue.length; i++) {
-                const currentQueue = queue[i];
-                if (currentQueue.c) {
-                    queue.push(...currentQueue.c);
-                }
-                result.push(currentQueue.v);
+        const queue = [inputTree];
+        const result = [];
+        for (let i = 0; i < queue.length; i++) {
+            const currentQueue = queue[i];
+            if (currentQueue.c) {
+                queue.push(...currentQueue.c);
             }
-            return result;
+            result.push(currentQueue.v);
         }
+        return result;
+    }
 
     console.log(horisontalDepth(treeExamp));
+
+    function getPrime(number) {
+        const numberSqrt = Math.sqrt(number);
+        const primeNumbers = [];
+
+        for (let i = 3; i < number; i += 2) {
+            let breakeFlag = false;
+            for (let j = 0; j < primeNumbers.length && primeNumbers[j] <= numberSqrt; j++) {
+                if (i % primeNumbers[j] === 0) {
+                    breakeFlag = true;
+                    break;
+                }
+            }
+            if (breakeFlag) {
+                continue;
+            }
+            primeNumbers.push(i);
+        }
+        if (number > 2) {
+            primeNumbers.unshift(2)
+        }
+        return primeNumbers;
+    }
+
+    console.log("PrimesNumber", getPrime(1000));
 
 </script>
 
