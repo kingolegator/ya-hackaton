@@ -86,6 +86,44 @@
     }
     console.log("check balance", checkBalance("{[}]"));
 
+    const treeExamp = {
+        v: 1,
+        c: [
+            {
+                v: 2,
+                c: [
+                    {
+                        v: 3
+                    },
+                    {
+                        v: 3.1
+                    }
+                ]
+            },
+            {
+                v: 3
+            }
+        ]
+    };
+
+    function depthTree(inputTree) {
+        let outVal = [];
+        function roundTree(inputTree) {
+            if (inputTree) {
+                if (inputTree.c) {
+                    for (let i = 0; i < inputTree.c.length; i++) {
+                        roundTree(inputTree.c[i])
+                    }
+                }
+                outVal.push(inputTree.v);
+            }
+        }
+        roundTree(inputTree);
+        return outVal;
+    }
+
+    depthTree(treeExamp);
+
 </script>
 
 </html>
