@@ -21,10 +21,31 @@
                 }
             }
         }
-        console.log(arr);
+        console.log("sorted arr", arr);
+        return arr;
     }
 
-    bubleSort(inputArr);
+    const sortResult = bubleSort(inputArr);
+
+    function binaryFind(findValue, array) {
+        let startSection = 0, endSection = array.length - 1, middleElem;
+
+        while (startSection <= endSection) {
+            currentNumber = Math.floor((startSection + endSection) / 2);
+            if (findValue === array[currentNumber]) {
+                console.log(`finded index: ${currentNumber}`);
+                return currentNumber;
+            } else if (findValue < array[currentNumber]) {
+                endSection = currentNumber - 1;
+            } else {
+                startSection = currentNumber + 1;
+            }
+        }
+        console.log("not found");
+        return -1;
+    }
+
+    binaryFind(12, sortResult);
 
 </script>
 
