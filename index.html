@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Хакатон</title>
+</head>
+
+<body>
+</body>
+<script>
+    const inputArr = [4, 7, 3, 2, 0,12];
+
+    function bubleSort (arr) {
+        for (let i = 0; i < arr.length; i++) {
+            for (let j = 0; j < arr.length; j++) {
+                if (arr[i] < arr[j]) {
+                    const tmp = arr[i];
+                    arr[i] = arr[j];
+                    arr[j] = tmp;
+                }
+            }
+        }
+        console.log(arr);
+    }
+
+    bubleSort(inputArr);
+</script>
+</html>
