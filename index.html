@@ -75,9 +75,11 @@
             if (openSymbol.indexOf(charValue) !== -1) {
                 stack.push(charValue);
             } else if (checkSymbol[charValue]) {
-                if (stack[stack.length - 1] === checkSymbol[charValue])
+                if (stack[stack.length - 1] === checkSymbol[charValue]) {
                     stack.pop();
-                else return false;
+                } else {
+                    return false;
+                }
             }
         }
         return stack.length === 0;
