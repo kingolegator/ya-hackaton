@@ -125,16 +125,17 @@
     console.log(depthTree(treeExamp));
 
     function horisontalDepth(inputTree) {
-        let queue = [inputTree];
-        let result = [];
-        for (let i = 0; i < queue.length; i++) {
-            if (queue[i].c) {
-                queue.push(...queue[i].c);
+            const queue = [inputTree];
+            const result = [];
+            for (let i = 0; i < queue.length; i++) {
+                const currentQueue = queue[i];
+                if (currentQueue.c) {
+                    queue.push(...currentQueue.c);
+                }
+                result.push(currentQueue.v);
             }
-            result.push(queue[i].v);
+            return result;
         }
-        return result;
-    }
 
     console.log(horisontalDepth(treeExamp));
 
